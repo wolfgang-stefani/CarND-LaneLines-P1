@@ -5,8 +5,6 @@
 
 ---
 
-**Finding Lane Lines on the Road**
-
 The goals / steps of this project are the following:
 * Make a pipeline that finds lane lines on the road
 * Reflect on your work in a written report
@@ -20,7 +18,7 @@ The goals / steps of this project are the following:
 [image4]: ./examples/masked_edges.jpg "masked_edges"
 [image5]: ./examples/line_image.jpg "line_image"
 [image6]: ./examples/combo.jpg "combo"
-[image7]: ./examples/combo.jpg "pipeline"
+[image7]: ./examples/pipeline.jpg "pipeline"
 
 ---
 
