@@ -5,9 +5,7 @@
 
 ---
 
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
+The goal of this project is to make a pipeline that finds lane lines on the road
 
 
 [//]: # (Image References)
@@ -54,9 +52,11 @@ My pipeline consists of 5 steps.
 
 Additional infos to step 5): In order to draw a single line - and not just a lot of line segments - on the left and right lanes, I modified the draw_lines() function as followed:
 
-1) All the detected lines have an individual slope m and intercept b. For each line these both parameters are being computed (m = (y2-y1)/(x2-x1) and b = y1 - m*x1) and written into a dedicated array to use them later. For example all slopes m from line segments belonging to the left lane are written to the array lm = np.array(()). How to know that line segments belong to the left lane in this example? The left lane has negative slope (attention: y-axis goes down!). So only if the condition that slope < 0 is fulfilled, the slope of the analysed line segment is being written into the lm-array.
-2) Now we have a long list with many values for slopes and intercept. To find one corresponding slope respectively intercept the array is used to compute the average, e.g. the values in lm are used to compute the average slope of the left lane "lm_avg". Same happens to the intercept of the left lane, slope and intercept of the right lane.
-3) For each lane, two points can be computed. One point is where y = 540 in order to start at the bottom and meet the requirements. The second point is at the height of the apex from the region of interest which is y = 310.
+1) All the detected lines have an individual slope m and intercept b. For each line these both parameters are being computed (m = (y2-y1)/(x2-x1) and b = y1 - m*x1) and written into a dedicated array to use them later. For example all slopes m from line segments belonging to the left lane are written to the array lm = np.array(()). How to know that line segments belong to the left lane in this example? The left lane has negative slope (attention: y-axis goes down!). So only if the condition slope < 0 is fulfilled, the slope of the analysed line segment is being written into the lm-array.
+
+2) Now we have a long list with many values for slopes and intercepts. To find one corresponding slope respectively intercept the array is used to compute the average, e.g. the values in lm are used to compute the average slope of the left lane "lm_avg". Same happens to the intercept of the left lane, slope and intercept of the right lane.
+
+3) For each lane, two points can be computed. One point is where y = 540 in order to start at the bottom of the image and meet the requirements. The second point is the y-coordinate of the apex of the region of interest which is y = 310.
 
 ## Here is a schematic representation of the full pipeline:
 
@@ -64,16 +64,17 @@ Additional infos to step 5): In order to draw a single line - and not just a lot
 
 
 
-### 2. Identify potential shortcomings with your current pipeline
+### 2. Potential shortcomings with the current pipeline
 
+1) One potential shortcoming would be what would happen when the sun shines on the road in a bad angle? The edge detection of white lanes gets worse because the whole image is bright an adjacent pixels have quite similar color values. Edges cannot reliably be detected. 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+2) Another shortcoming could be that lines are not detected perfectly on the right position and lanes is detected as smaller or bigger than in real. The result are flouncing detected lanes on the video.
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+( 1) Out of scope because this is not an improvement for this pipeline: A possible improvement would be to use not only camera-generated data but also location data in combination to HD maps to find the drivable lane without the needing lane lines at all.)
 
-Another potential improvement could be to ...
+2) Another potential improvement could be to adjust the hough parameters in order to detect lines more precisely on the right position without flouncing. Further the lines could be shortened and not go fully to the apex of the region.
+
+3) Another potential improvement could be to improve the vertices of the interested region and to let them dynamically change (not fixed values as is).
