@@ -1,8 +1,7 @@
 # **Finding Lane Lines on the Road** 
 
-## Writeup Template
+## Writeup
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -15,6 +14,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
+[image1]: ./examples/grayscale.jpg "gray"
+[image2]: ./examples/blur_gray.jpg "blur_gray"
+[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: ./examples/grayscale.jpg "Grayscale"
+[image1]: ./examples/grayscale.jpg "Grayscale"
 [image1]: ./examples/grayscale.jpg "Grayscale"
 
 ---
@@ -25,8 +29,14 @@ The goals / steps of this project are the following:
 
 My pipeline consists of 5 steps. 
 
-1) First, I converted the initial images ("image") to grayscale.
+1) First, I converted the initial images ("image") to grayscale >>"gray":
+
+![alt text][image1]
+
 2) Second, I blurred the images with Gaussian blurring >> "blur_gray".
+
+![alt text][image2]
+
 3) Third, I canny-edged the images. This algorithm detects pixels whose adjacent pixels have quite different values. The result is images where you can see only silhouettes ("masked_edges"). 
 4) The canny-edged images can now be used for hough transformation. This algorithm is able to detect lines in images. Every pixel can be represented as a sine-curve in rho-theta-parameter space the so-called hough space. Intersections of sine-curves in hough spaces represent detected lines. cv2HoughLinesP writes the endpoints (x1, y1, x2, y2) of the detected lines in to a simple array. 
 5) Next the detected lines are drawn on a blank copy (same dimensions with values set to 0) of the initial image or canny-edged image (no matter because they have the same dimensions). NOTE: The output of the function hough_lines() includes hough transformation (described in step 4), line detection (dito) and drawing the detected lines on a blank copy. Drawing is realized by the function draw_lines(). The result is "line_image".
