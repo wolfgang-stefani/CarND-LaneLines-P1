@@ -5,7 +5,7 @@
 
 ---
 
-The goal of this project is to make a pipeline that finds lane lines on the road
+The goal of this project is to make a pipeline that finds lane lines on the road.
 
 
 [//]: # (Image References)
@@ -22,9 +22,9 @@ The goal of this project is to make a pipeline that finds lane lines on the road
 
 ### Reflection
 
-### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+### 1. Description of the pipeline.
 
-My pipeline consists of 5 steps. 
+My pipeline consists of 6 steps:
 
 1) First, I converted the initial images ("image") to grayscale >>"gray":
 
@@ -71,7 +71,7 @@ Additional infos to step 5): In order to draw a single line - and not just a lot
 2) Another shortcoming could be that lines are not detected perfectly on the right position and lanes is detected as smaller or bigger than in real. The result are flouncing detected lanes on the video.
 
 
-### 3. Suggest possible improvements to your pipeline
+### 3. Possible improvements to the pipeline
 
 ( 1) Out of scope because this is not an improvement for this pipeline: A possible improvement would be to use not only camera-generated data but also location data in combination to HD maps to find the drivable lane without the needing lane lines at all.)
 
