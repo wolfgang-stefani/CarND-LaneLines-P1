@@ -25,7 +25,8 @@ The goals / steps of this project are the following:
 
 My pipeline consists of 5 steps. 
 
-1) First, I converted the initial images ("image") to grayscale.
+1) First, I converted the initial images ("image") to grayscale >>"gray":
+![alt text][image1]
 2) Second, I blurred the images with Gaussian blurring >> "blur_gray".
 3) Third, I canny-edged the images. This algorithm detects pixels whose adjacent pixels have quite different values. The result is images where you can see only silhouettes ("masked_edges"). 
 4) The canny-edged images can now be used for hough transformation. This algorithm is able to detect lines in images. Every pixel can be represented as a sine-curve in rho-theta-parameter space the so-called hough space. Intersections of sine-curves in hough spaces represent detected lines. cv2HoughLinesP writes the endpoints (x1, y1, x2, y2) of the detected lines in to a simple array. 
