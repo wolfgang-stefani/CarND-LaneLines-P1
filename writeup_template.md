@@ -77,4 +77,4 @@ Additional infos to step 5): In order to draw a single line - and not just a lot
 
 2) Another potential improvement could be to adjust the hough parameters in order to detect lines more precisely on the right position without flouncing. Further the lines could be shortened and not go fully to the apex of the region.
 
-3) Another potential improvement could be to improve the vertices of the interested region and to let them dynamically change (not fixed values as is).
+3) Another potential improvement could be to improve the vertices of the interested region and to let them dynamically change (not fixed values as is). As example, the apex could be defined as intersection of the dynamically detected lines.
