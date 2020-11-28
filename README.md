@@ -8,7 +8,28 @@ Overview
 
 When we drive, we use our eyes to decide where to go. The lines on the road that show us where the lanes are act as our constant reference for where to steer the vehicle.  Naturally, one of the first things we would like to do in developing a self-driving car is to automatically detect lane lines using an algorithm.
 
-In this project we will detect lane lines in images using Python and OpenCV.  OpenCV means "Open-Source Computer Vision", which is a package that has many useful tools for analyzing images.
+In this project we will detect lane lines in images using **Python** and **OpenCV**.  OpenCV means "Open-Source Computer Vision", which is a package that has many useful tools for analyzing images. The tools we have are **color selection**, **region of interest selection**, **grayscaling**, **Gaussian smoothing**, **Canny Edge Detection** and **Hough Tranform** for line detection.
+
+Our goal is to piece together a pipeline to detect the line segments in the image, then connect/average/extrapolate them and draw them onto the image for display (as below). Once we have a working pipeline, we apply it on video streams.
+
+Let's have a look at our first image:
+
+
+<figure>
+ <img src="examples/line-segments-example.jpg" width="380" alt="Combined Image" />
+ <figcaption>
+ <p></p> 
+ <p style="text-align: center;"> The output will look something like this (above) after detecting line segments using the helper functions </p> 
+ </figcaption>
+</figure>
+ <p></p> 
+<figure>
+ <img src="examples/laneLines_thirdPass.jpg" width="380" alt="Combined Image" />
+ <figcaption>
+ <p></p> 
+ <p style="text-align: center;"> Line segments are connected/averaged/extraplated to get output like this</p> 
+ </figcaption>
+</figure>
 
 [//]: # (Image References)
 
