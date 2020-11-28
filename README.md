@@ -29,29 +29,30 @@ Pipeline
 
 My pipeline consists of 6 steps:
 
-1) First, I converted the initial images ("image") to grayscale >>"gray":
+1) First, I converted the initial images ("image") to grayscale ("gray"):
 
-![alt text][image1]
+<img src="./examples/gray.jpg" width="500" />
 
-2) Second, I blurred the images with Gaussian blurring >> "blur_gray".
 
-![alt text][image2]
+2) Second, I blurred the images with Gaussian blurring ("blur_gray"):
 
-3) Third, I canny-edged the images. This algorithm detects pixels whose adjacent pixels have quite different values. The result is images where you can only see the silhouettes ("masked_edges").
+<img src="./examples/blur_gray.jpg" width="500" />
 
-![alt text][image3]
+3) Third, I canny-edged the images. This algorithm detects pixels whose adjacent pixels have quite different values. In the resulting image you can only see the silhouettes ("edges"):
 
-4) Now a mask is applied to the canny-edged images. This means only a defined region of the image is kept. The rest of the image is set to black >> "masked_edges"
+<img src="./examples/edges.jpg" width="500" />
 
-![alt text][image4]
+4) Now a mask is applied to the canny-edged images. This means only a defined region of the image is kept. The rest of the image is set to black ("masked_edges"):
 
-5) The images can now be used for hough transformation. This algorithm is able to detect lines in images. Every pixel can be represented as a sine-curve in rho-theta-parameter space the so-called hough space. Intersections of sine-curves in hough space represent detected lines. The function cv2HoughLinesP() writes the endpoints (x1, y1, x2, y2) of the detected lines into a simple array. The detected lines are drawn on a blank copy (same dimensions with values set to 0) of the initial image or canny-edged image (no matter because they have the same dimensions). NOTE: The output of the function hough_lines() includes hough transformation, line detection, copying the initial image and drawing the detected lines on the blank copy. Drawing is realized by the function draw_lines(). The result is "line_image":
+<img src="./examples/masked_edges.jpg" width="500" />
 
-![alt text][image5]
+5) The images can now be used for hough transformation. This algorithm is able to detect lines in images. Every pixel can be represented as a sine-curve in rho-theta-parameter space the so-called hough space. Intersections of sine-curves in hough space represent detected lines. The function cv2.HoughLinesP() writes the endpoints (x1, y1, x2, y2) of the detected lines into a simple array. The detected lines are drawn on a blank copy (same dimensions with values set to 0) of the initial image or canny-edged image (no matter because they have the same dimensions). NOTE: The output of the function hough_lines() includes hough transformation, line detection, copying the initial image and drawing the detected lines on the blank copy. Drawing is realized by the function draw_lines(). The result is "line_image":
 
-6) In the final step, the initial image is combined with the line_image using the function weighted_image(). The resulting image "combo" is computed as follows: initial_img * α (=0.8) + line_img * β (=1. + γ (=0)
+<img src="./examples/line_image.jpg" width="500" />
 
-![alt text][image6]
+6) In the final step, the initial image is combined with the line_image using the function weighted_image(). The resulting image "combo" is computed as follows: initial_img * α (=0.8) + line_img * β (=1.) + γ (=0)
+
+<img src="./examples/combo.jpg" width="500" />
 
 Additional infos to step 5): In order to draw a single line - and not just a lot of line segments - on the left and right lanes, I modified the draw_lines() function as followed:
 
@@ -64,6 +65,7 @@ Additional infos to step 5): In order to draw a single line - and not just a lot
 ### Here is a schematic representation of the full pipeline:
 
 ![alt text][image7]
+<img src="./examples/pipeline.jpg" width="750" />
 
 
 
