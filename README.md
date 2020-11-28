@@ -64,9 +64,7 @@ Additional infos to step 5): In order to draw a single line - and not just a lot
 
 ### Here is a schematic representation of the full pipeline:
 
-![alt text][image7]
 <img src="./examples/pipeline.jpg" width="750" />
-
 
 
 ### 2. Potential shortcomings with the current pipeline
